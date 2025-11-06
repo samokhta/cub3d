@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:48:35 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 12:07:44 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 13:44:00 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	read_map(int fd, t_map *map)
 
 	max_length = 0;
 	lst = NULL;
-	line = get_next_line(fd);
+	line = 	skip_empty_lines(fd);
 	while (line && !empty_line(line))
 	{
 		remove_nl(line);

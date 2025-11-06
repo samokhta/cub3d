@@ -6,7 +6,7 @@
 #    By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/05 16:49:00 by sravizza         ###   ########.fr        #
+#    Updated: 2025/11/06 14:21:34 by sravizza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ PARS_DIR	= parsing
 
 SRC_MAIN	= main_cub3d.c	utils.c init.c
 
-SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c
+SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
 
 SRC			= $(SRC_MAIN)													   \
 			  $(addprefix $(PARS_DIR)/, $(SRC_PARS))

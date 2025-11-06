@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:09:17 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 13:24:14 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 13:43:13 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	get_player_coor(t_map *map)
 	int	y;	
 
 	x = 0;
-	ft_printf("HERE");
 	while (map->coor && map->coor[x])
 	{
 		y = 0;
@@ -74,15 +73,17 @@ int	get_player_coor(t_map *map)
 				map->player[0] = x;
 				map->player[1] = y;
 				map->player[2] = map->coor[x][y];
+				// map->coor[x][y] = '0';
 			}
 			y++;
 		}
 		x++;
 	}
+	// ft_printf("HERE");
 	return (map->player[0] != -1);
 }
 
-void	skip_empty_lines(int fd)
+char	*skip_empty_lines(int fd)
 {
 	char	*line;
 
@@ -92,4 +93,5 @@ void	skip_empty_lines(int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+	return (line);
 }
