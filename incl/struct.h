@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/05 17:10:39 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:19:23 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,19 @@ typedef struct s_map
 	char	**coor;
 }	t_map;
 
-typedef struct s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_img;
+
+typedef struct s_data {
+	void		*mlx;
+	void		*win;
+	t_img	img;
 	t_map	map;
-}			t_data;
+}				t_data;
 
 #endif

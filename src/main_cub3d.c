@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/05 17:10:40 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 14:22:27 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	(void)argc;
+	(void)argv;
 
-	if (argc != 2 || !check_filename(argv[1]))
-		return (format_error(("wrong input format, try ./cub3d <map.cub>")), 0);
-	if (!parsing(argv[1], &data.map))
-		return (1);
-	 ft_mlx_init(argv, &data);
-	 ft_mlx_hook(&data);
-	 ft_mlx_destroy(&data, 1);
+	//if (argc != 2 || !check_filename(argv[1]))
+	//	return (format_error(("wrong input format, try ./cub3d <map.cub>")), 0);
+	//if (!parsing(argv[1], &data.map))
+	//	return (1);
+	ft_window_init(&data);
 	return (0);
 }
 
