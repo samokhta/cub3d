@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proto.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 15:57:09 by samokhta         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:05:12 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ void	ft_mlx_destroy(t_data *data, int map);
 int		parsing(char *file, t_map *map);
 int 	assign_param(char *line, t_map *map);
 
+//floodfill
+int	validate_map(t_map *map);
+
 //map
 int		is_map(char *line);
 char 	*copy_line(char *content, int max_len);
-char	 **get_coor(t_list *lst, int max_length);
-int		read_map(int fd, t_map *map);
+char	 **get_coor(t_map *map, t_list *lst, int max_length);
+int		read_map(int fd, t_map *map, int max_length, t_list *lst);
 
 //param
 int 	assign_texture(char *line, char **param);
@@ -63,7 +66,7 @@ int		check_filename(char *str);
 
 //tests
 void	print_params(t_map *map);
-void	print_map(t_map *map);
+void	print_map(char **map);
 
 //window_init
 void	ft_pixel_put(t_img *img, int x, int y, unsigned int color);

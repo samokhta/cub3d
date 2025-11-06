@@ -6,13 +6,13 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:31:42 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 12:07:21 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:38:53 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_list *new_node(char *content)
+t_list	*new_node(char *content)
 {
 	t_list	*dest;
 
@@ -29,7 +29,7 @@ t_list *new_node(char *content)
 	return (dest);
 }
 
-void node_add_back(t_list **lst, t_list *new)
+void	node_add_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
@@ -45,7 +45,7 @@ void node_add_back(t_list **lst, t_list *new)
 	return ;
 }
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	size;
 
@@ -60,7 +60,7 @@ int ft_lstsize(t_list *lst)
 	return (size);
 }
 
-void free_lst(t_list **lst)
+void	free_lst(t_list **lst)
 {
 	t_list	*temp;
 

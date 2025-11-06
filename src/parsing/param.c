@@ -6,13 +6,13 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 15:44:22 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/05 16:52:13 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:37:59 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int assign_texture(char *line, char **param)
+int	assign_texture(char *line, char **param)
 {
 	int		fd;
 	int		i;
@@ -57,12 +57,12 @@ int	assign_color(char *line, int *param, int i_color)
 		if (i_color < 3 && line[i++] != ',')
 			return (format_error("color: missing comma"), 0);
 	}
-		if (i_color != 3 || (line[i] && line[i] != '\n'))
-			return (format_error("color: too many or too few"), 0);
-		return (1);
+	if (i_color != 3 || (line[i] && line[i] != '\n'))
+		return (format_error("color: too many or too few"), 0);
+	return (1);
 }
 
-int assign_param(char *line, t_map *map)
+int	assign_param(char *line, t_map *map)
 {
 	if (!ft_strncmp(line, "NO ", 3) && !(map->no))
 		return (assign_texture(line, &map->no));
@@ -93,4 +93,3 @@ int	read_params(int fd, t_map *map)
 	}
 	return (1);
 }
-

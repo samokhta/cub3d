@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:59:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 11:58:52 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:32:13 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ void	format_error(char *msg)
 	return ;
 }
 
-
-void free_params(t_map *map)
+void	free_params(t_map *map)
 {
 	free(map->no);
 	free(map->so);

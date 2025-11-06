@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:46:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 11:21:35 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 17:47:01 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_filename(char *str)
 	return (1);
 }
 
-void initialise_param(t_map *map)
+void	initialise_param(t_map *map)
 {
 	map->f[0] = -1;
 	map->f[1] = -1;
@@ -51,9 +51,9 @@ void initialise_param(t_map *map)
 	map->so = NULL;
 	map->ea = NULL;
 	map->we = NULL;
-	map->player[0] = -1;
-	map->player[1] = -1;
-	map->player[2] = -1;
+	map->p_row = -1;
+	map->p_col = -1;
+	map->p_dir = 'F';
 	map->lst = NULL;
 	map->coor = NULL;
 }

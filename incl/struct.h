@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 15:19:23 by samokhta         ###   ########.fr       */
+/*   Updated: 2025/11/06 17:45:53 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ typedef struct s_map
 	char	*ea;
 	int		f[3];
 	int		c[3];
-	char	player[3];
+	int		p_row;
+	int		p_col;
+	char	p_dir;
 	t_list	*lst;
-	int		length;
+	int		height;
 	int		width;
 	char	**coor;
 }	t_map;

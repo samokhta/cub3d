@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:48:35 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 13:44:00 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/06 17:06:33 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@ int	is_map(char *line)
 	while (line[i])
 	{
 		if (!(line[i] == '1' || line[i] == '0' || line[i] == ' '
-			|| line[i] == 'N' || line[i] == 'S'
-			|| line[i] == 'E' || line[i] == 'W'))
+				|| line[i] == 'N' || line[i] == 'S'
+				|| line[i] == 'E' || line[i] == 'W'))
 			return (format_error("undesired char in map"), 0);
 		i++;
 	}
 	return (1);
 }
-char *copy_line(char *content, int max_len)
+
+char	*copy_line(char *content, int max_len)
 {
-	char *dest;
-	int	i;
+	char	*dest;
+	int		i;
 
 	dest = malloc(sizeof(char) * (max_len + 1));
 	if (!dest)
@@ -47,14 +48,14 @@ char *copy_line(char *content, int max_len)
 	return (dest);
 }
 
-char **get_coor(t_list *lst, int max_length)
+char	**get_coor(t_map *map, t_list *lst, int max_length)
 {
 	char	**dest;
 	int		i;
-	int		size;
 
-	size = ft_lstsize(lst);
-	dest = malloc(sizeof(char *) * (size + 1));
+	map->height = ft_lstsize(lst);
+	map->width = max_length;
+	dest = malloc(sizeof(char *) * (map->height + 1));
 	if (!dest)
 		return (format_error("malloc fail"), NULL);
 	i = 0;
@@ -66,7 +67,7 @@ char **get_coor(t_list *lst, int max_length)
 			while (i-- > 0)
 				free(dest[i]);
 			free(dest);
-			return (format_error("malloc fail"),NULL);
+			return (format_error("malloc fail"), NULL);
 		}
 		lst = lst->next;
 		i++;
@@ -77,7 +78,7 @@ char **get_coor(t_list *lst, int max_length)
 
 char	*remove_nl(char *src)
 {
-	int len;
+	int	len;
 
 	if (!src)
 		return (NULL);
@@ -87,17 +88,13 @@ char	*remove_nl(char *src)
 	return (src);
 }
 
-int	read_map(int fd, t_map *map)
+int	read_map(int fd, t_map *map, int max_length, t_list *lst)
 {
 	char	*line;
 	int		line_length;
-	int		max_length;
-	t_list	*lst;
 	t_list	*node;
 
-	max_length = 0;
-	lst = NULL;
-	line = 	skip_empty_lines(fd);
+	line = skip_empty_lines(fd);
 	while (line && !empty_line(line))
 	{
 		remove_nl(line);
@@ -113,10 +110,8 @@ int	read_map(int fd, t_map *map)
 		free(line);
 		line = get_next_line(fd);
 	}
-	map->coor = get_coor(lst, max_length);
+	map->coor = get_coor(map, lst, max_length);
 	if (!(map->coor))
 		return (0);
-	map->width = max_length;
-	map->length = ft_lstsize(lst);
 	return (1);
 }
