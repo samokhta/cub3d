@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 		return (format_error(("wrong input format, try ./cub3d <map.cub>")), 0);
 	if (!parsing(argv[1], &data.map))
 		return (1);
-	// ft_mlx_init(argv, &data);
-	// ft_mlx_hook(&data);
-	// ft_mlx_destroy(&data, 1);
+	 ft_mlx_init(argv, &data);
+	 ft_mlx_hook(&data);
+	 ft_mlx_destroy(&data, 1);
 	return (0);
 }
 

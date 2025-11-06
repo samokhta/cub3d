@@ -18,6 +18,7 @@ SRC_DIR		= src
 OBJ_DIR		= obj
 INCL_DIR	= incl
 PARS_DIR	= parsing
+WIN_DIR		= window
 
 ################################################################################
 ##								  SOURCES									  ##
@@ -26,8 +27,11 @@ SRC_MAIN	= main_cub3d.c	utils.c init.c
 
 SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c
 
+SRC_WIN		= 
+
 SRC			= $(SRC_MAIN)													   \
-			  $(addprefix $(PARS_DIR)/, $(SRC_PARS))
+			  $(addprefix $(PARS_DIR)/, $(SRC_PARS)) \
+			  $(addprefix $(WIN_DIR)/, $(SRC_WIN))
 
 LIBFT_LIB	= $(LIBFT_DIR)/libft.a
 MLX_LIB		= $(MLX_DIR)/libmlx.a
@@ -57,6 +61,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | create_obj_dirs
 
 $(OBJ_DIR)/%.o: $(PARS_DIR)/%.c | create_obj_dirs
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(WIN_DIR)/%.c | create_obj_dirs
+	$(CC) $(CFLAGS) -c $< -o $@
+
 
 create_obj_dirs:
 	mkdir -p	$(OBJ_DIR)/$(PARS_DIR) 
