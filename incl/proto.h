@@ -6,7 +6,7 @@
 /*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 15:19:06 by samokhta         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:57:09 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		params_complete(t_map *map);
 int		empty_line(char *str);
 char	*clean_line(char *src);
 int		get_player_coor(t_map *map);
-void	skip_empty_lines(int fd);
+char	*skip_empty_lines(int fd);
 
 //utils
 void	format_error(char *msg);

@@ -6,7 +6,7 @@
 #    By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/06 14:26:37 by samokhta         ###   ########.fr        #
+#    Updated: 2025/11/06 15:55:58 by samokhta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ WIN_DIR		= window
 
 SRC_MAIN	= main_cub3d.c	utils.c init.c
 
-SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c
+SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
 
 SRC_WIN		= window_init.c
 
