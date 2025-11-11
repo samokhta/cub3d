@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:16:57 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 18:09:29 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 13:45:18 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,11 @@ char	**ft_double_strdup(char **src, int len)
 
 int	flood_fill(t_map *map, char **flood, int row, int col)
 {
-	if (row < 0 || row >= map->height - 1 || col < 0
-		|| col >= map->width - 1 || flood[row][col] == ' ')
+	if (row < 0 || row >= map->height || col < 0
+		|| col >= map->width || flood[row][col] == ' ')
 		return (0);
-	if (flood[row][col] == '1')
+	if (flood[row][col] == '1' || flood[row][col] == 'V')
 		return (1);
-	// ft_printf("HERE\n");
 	flood[row][col] = 'V';
 	if (!flood_fill(map, flood, row + 1, col)
 		|| !flood_fill(map, flood, row - 1, col)
@@ -71,7 +70,6 @@ int	validate_map(t_map *map)
 	flood = ft_double_strdup(map->coor, 0);
 	if (!flood)
 		return (format_error("malloc fail"), 0);
-	print_map(flood);
 	if (!flood_fill(map, flood, map->p_row, map->p_col))
 		return (free_all(flood), 0);
 	return (free_all(flood), 1);

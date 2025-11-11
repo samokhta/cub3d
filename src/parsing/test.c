@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:01:39 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 18:03:51 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 12:25:40 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ void	print_map(char **map)
 {
 	int	y;
 
+	ft_printf("\n");
 	y = 0;
 	while (map[y])
 	{
 		ft_printf("%s$\n", map[y]);
 		y++;
 	}
+	ft_printf("\n");
 }
