@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 18:05:12 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:21:00 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ void	free_all(char **str);
 int		ft_isfilename(int c);
 void	initialise_param(t_map *map);
 int		check_filename(char *str);
+void	initialise_player(t_player *player, t_map *map);
 
 //tests
 void	print_params(t_map *map);
 void	print_map(char **map);
+void	print_player_stats(t_player *player);
 
 //window_init
 void	ft_pixel_put(t_img *img, int x, int y, unsigned int color);

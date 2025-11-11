@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:01:39 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 12:25:40 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:27:00 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,15 @@ void	print_map(char **map)
 		y++;
 	}
 	ft_printf("\n");
+}
+
+void	print_player_stats(t_player *player)
+{
+	printf("\nPLAYER:\n");
+	printf("X: %f\n", player->x);
+	printf("Y: %f\n", player->y);
+	printf("dir_X: %f\n", player->dir_x);
+	printf("dir_Y: %f\n", player->dir_y);
+	printf("plane_X: %f\n", player->plane_x);
+	printf("plane_Y: %f\n", player->plane_y);
 }

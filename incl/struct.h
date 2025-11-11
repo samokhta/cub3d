@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 17:45:53 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:07:31 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,23 @@ typedef struct s_img {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_img;
+}	t_img;
+
+typedef struct s_player{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_player;
 
 typedef struct s_data {
 	void		*mlx;
 	void		*win;
-	t_img	img;
-	t_map	map;
-}				t_data;
+	t_img		img;
+	t_map		map;
+	t_player	player;
+}	t_data;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:46:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 17:47:01 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:22:41 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,26 @@ void	initialise_param(t_map *map)
 	map->p_dir = 'F';
 	map->lst = NULL;
 	map->coor = NULL;
+}
+
+void	assign_dir_and_plane(t_player *player, double dir_x, double dir_y, double plane_x, double plane_y)
+{
+	player->dir_x = dir_x;
+	player->dir_y = dir_y;
+	player->plane_x = plane_x;
+	player->plane_y = plane_y;
+}
+
+void	initialise_player(t_player *player, t_map *map)
+{
+	player->x = (double)map->p_col + 0.5;
+	player->y = (double)map->p_row + 0.5;
+	if (map->p_dir == 'N')
+		assign_dir_and_plane(player, 0.0, -1.0, 0.66, 0.0);
+	if (map->p_dir == 'S')
+		assign_dir_and_plane(player, 0.0, 1.0, -0.66, 0.0);
+	if (map->p_dir == 'E')
+		assign_dir_and_plane(player, 1.0, 0.0, 0.0, 0.66);
+	if (map->p_dir == 'W')
+		assign_dir_and_plane(player, -1.0, 0.0, 0.0, -0.66);
 }
