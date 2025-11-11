@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proto.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 15:19:24 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:47:33 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,9 @@ void	ft_pixel_put(t_img *img, int x, int y, unsigned int color);
 int		key_hook(int keycode, t_data *data);
 int		close_hook(t_data *data);
 void   	ft_window_init(t_data *data);
+
+//minimap
+void    ft_minimap(t_data *data);
+void	draw_square(t_data *data, int x, int y, int size, int color);
 
 #endif

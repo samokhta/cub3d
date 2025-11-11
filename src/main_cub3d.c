@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 14:44:23 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 16:03:32 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int	main(int argc, char **argv)
 	initialise_player(&data.player, &data.map);
 	print_player_stats(&data.player);
 	ft_window_init(&data);
+	//ft_minimap(&data);
+	mlx_pixel_put(data.mlx, data.win, 500, 500, 0xFF0000);
+	//mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
 	// ft_mlx_hook(&data);
 	// ft_mlx_destroy(&data, 1);
 	return (0);
