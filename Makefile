@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+         #
+#    By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/06 15:55:58 by samokhta         ###   ########.fr        #
+#    Updated: 2025/11/11 14:42:04 by sravizza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
 SRC_WIN		= window_init.c
 
 SRC			= $(SRC_MAIN)													   \
-			  $(addprefix $(PARS_DIR)/, $(SRC_PARS)) \
+			  $(addprefix $(PARS_DIR)/, $(SRC_PARS))						   \
 			  $(addprefix $(WIN_DIR)/, $(SRC_WIN))
 
 LIBFT_LIB	= $(LIBFT_DIR)/libft.a

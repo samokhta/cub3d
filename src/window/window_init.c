@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:16:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/06 15:27:08 by samokhta         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:19:14 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,31 @@ int close_hook(t_data *data)
     return (0);
 }
 
-void    ft_window_init(t_data *dataptr)
-{
-    t_data   data;
+// void    ft_window_init(t_data *dataptr)
+// {
+//     t_data   data;
 
-    data = *dataptr;
-	data.mlx = mlx_init();
-    data.img.img = mlx_new_image(data.mlx, 1920, 1080);
-    data.img.addr = mlx_get_data_addr(data.img.img,
-            &data.img.bits_per_pixel, &data.img.line_length, &data.img.endian);
-	data.win = mlx_new_window(data.mlx, 1920, 1080, "cub3d");
-    mlx_key_hook(data.win, key_hook, &data);
-    mlx_hook(data.win, 17, 0, close_hook, &data);
-	mlx_loop(data.mlx);
+//     data = *dataptr;
+// 	data.mlx = mlx_init();
+//     data.img.img = mlx_new_image(data.mlx, 1920, 1080);
+//     data.img.addr = mlx_get_data_addr(data.img.img,
+//             &data.img.bits_per_pixel, &data.img.line_length, &data.img.endian);
+// 	data.win = mlx_new_window(data.mlx, 1920, 1080, "cub3d");
+//     mlx_key_hook(data.win, key_hook, &data);
+//     mlx_hook(data.win, 17, 0, close_hook, &data);
+// 	mlx_loop(data.mlx);
+//     return ;
+// }
+
+void    ft_window_init(t_data *data)
+{
+	data->mlx = mlx_init();
+    data->img.img = mlx_new_image(data->mlx, 1920, 1080);
+    data->img.addr = mlx_get_data_addr(data->img.img,
+            &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
+	data->win = mlx_new_window(data->mlx, 1920, 1080, "cub3d");
+    mlx_key_hook(data->win, key_hook, &data);
+    mlx_hook(data->win, 17, 0, close_hook, &data);
+	mlx_loop(data->mlx);
     return ;
 }

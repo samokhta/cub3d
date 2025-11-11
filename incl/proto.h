@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 14:21:00 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:19:24 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	print_player_stats(t_player *player);
 
 //window_init
 void	ft_pixel_put(t_img *img, int x, int y, unsigned int color);
-int    key_hook(int keycode, t_data *data);
-int    close_hook(t_data *data);
-void    ft_window_init(t_data *dataptr);
+int		key_hook(int keycode, t_data *data);
+int		close_hook(t_data *data);
+void   	ft_window_init(t_data *data);
 
 #endif
