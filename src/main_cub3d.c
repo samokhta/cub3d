@@ -23,9 +23,8 @@ int	main(int argc, char **argv)
 	initialise_player(&data.player, &data.map);
 	print_player_stats(&data.player);
 	ft_window_init(&data);
-	//ft_minimap(&data);
-	//ft_pixel_put(&data.img, 500, 500, 0xFF0000);
-	//mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
+	ft_minimap(&data);
+	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
 	mlx_loop(data.mlx);
 	// ft_mlx_destroy(&data, 1);
 	return (0);
