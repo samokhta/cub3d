@@ -29,21 +29,23 @@ void	ft_pixel_put(t_img *img, int x, int y, unsigned int color)
 
 int    key_hook(int keycode, t_data *data)
 {
-    (void)data;
-    if (keycode == 65307) // Escape key
-    {
-        // Add any necessary cleanup code here
-        exit(0);
-    }
-    return (0);
+	if (keycode == 65307) // Escape key
+	{
+		mlx_destroy_image(data->mlx, data->img.img);
+		mlx_destroy_display(data->mlx);
+		mlx_destroy_window(data->mlx, data->win);
+		exit(0);
+	}
+	return (0);
 }
 
 int close_hook(t_data *data)
 {
-    (void)data;
-    // Add any necessary cleanup code here
-    exit(0);
-    return (0);
+	mlx_destroy_image(data->mlx, data->img.img);
+	mlx_destroy_display(data->mlx);
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
+	return (0);
 }
 
 void    ft_window_init(t_data *data)

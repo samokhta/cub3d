@@ -26,6 +26,5 @@ int	main(int argc, char **argv)
 	ft_minimap(&data);
 	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
 	mlx_loop(data.mlx);
-	// ft_mlx_destroy(&data, 1);
 	return (0);
 }

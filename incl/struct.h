@@ -64,5 +64,5 @@ typedef struct s_data {
 	t_map		map;
 	t_player	player;
 }	t_data;
-
+//note: ajouter plusieurs t_img pour la minimap/le fond
 #endif

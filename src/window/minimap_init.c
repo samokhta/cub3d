@@ -14,7 +14,7 @@
 
 #define MINIMAP_SIZE 10
 
-void	draw_square(t_data *data, int x, int y, int size, int color)
+void	draw_square(t_data *data, int x, int y, int size)
 {
 	int i;
 	int j;
@@ -25,11 +25,33 @@ void	draw_square(t_data *data, int x, int y, int size, int color)
 		j = 0;
 		while (j < size)
 		{
-			ft_pixel_put(&data->img, x + j, y + i, color);
+			ft_pixel_put(&data->img, x + j, y + i, 0xFFFFFF);
 			j++;
 		}
 		i++;
 	}
+}
+
+int	find_size(t_data *data)
+{
+	int	i;
+	int	map_max;
+	int	img_max;
+
+	i = 0;
+	if (data->map.width >= data->map.height)
+		map_max = data->map.width;
+	else
+		map_max = data->map.height;
+	if (data->img.width >= data->img.height)
+		img_max = data->img.height;
+	else
+		img_max = data->img.width;
+	while ((i + 1) * map_max <= img_max)
+		i++;
+	
+	printf("tile size: %d\n", i);
+	return (i);
 }
 
 void    ft_minimap(t_data *data)
@@ -40,7 +62,7 @@ void    ft_minimap(t_data *data)
 	int map_y;
 	int square_size;
 
-	square_size = MINIMAP_SIZE;
+	square_size = find_size(data);
 	map_y = 0;
 	y = 0;
 	while (data->map.coor[map_y])
@@ -50,9 +72,7 @@ void    ft_minimap(t_data *data)
 		while (data->map.coor[map_y][map_x])
 		{
 			if (data->map.coor[map_y][map_x] == '1')
-				draw_square(data, x, y, square_size, 0xFFFFFF); // Wall - white
-			else if (data->map.coor[map_y][map_x] == '0')
-				draw_square(data, x, y, square_size, 0x000000); // Floor - black
+				draw_square(data, x, y, square_size);
 			map_x++;
 			x += square_size;
 		}

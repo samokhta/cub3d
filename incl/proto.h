@@ -78,6 +78,6 @@ void   	ft_window_init(t_data *data);
 
 //minimap
 void    ft_minimap(t_data *data);
-void	draw_square(t_data *data, int x, int y, int size, int color);
+void	draw_square(t_data *data, int x, int y, int size);
 
 #endif
