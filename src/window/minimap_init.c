@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:33:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/11 15:54:40 by samokhta         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:13:11 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define MINIMAP_SIZE 10
 
-void	draw_square(t_data *data, int x, int y, int size)
+void	draw_square(t_img *img, int x, int y, int size)
 {
 	int i;
 	int j;
@@ -25,7 +25,7 @@ void	draw_square(t_data *data, int x, int y, int size)
 		j = 0;
 		while (j < size)
 		{
-			ft_pixel_put(&data->img, x + j, y + i, 0xFFFFFF);
+			ft_pixel_put(img, x + j, y + i, 0xFFFFFF); //might break
 			j++;
 		}
 		i++;
@@ -43,10 +43,10 @@ int	find_size(t_data *data)
 		map_max = data->map.width;
 	else
 		map_max = data->map.height;
-	if (data->img.width >= data->img.height)
-		img_max = data->img.height;
+	if (WINDOW_WIDTH >= WINDOW_HEIGHT)
+		img_max = WINDOW_HEIGHT / 4;
 	else
-		img_max = data->img.width;
+		img_max = WINDOW_WIDTH / 4;
 	while ((i + 1) * map_max <= img_max)
 		i++;
 	
@@ -65,6 +65,7 @@ void    ft_minimap(t_data *data)
 	square_size = find_size(data);
 	map_y = 0;
 	y = 0;
+	ft_img_init(data->mlx, &data->minimap_img, WINDOW_WIDTH / 6, WINDOW_HEIGHT / 6);
 	while (data->map.coor[map_y])
 	{
 		map_x = 0;
@@ -72,7 +73,7 @@ void    ft_minimap(t_data *data)
 		while (data->map.coor[map_y][map_x])
 		{
 			if (data->map.coor[map_y][map_x] == '1')
-				draw_square(data, x, y, square_size);
+				draw_square(&data->minimap_img, x, y, square_size);
 			map_x++;
 			x += square_size;
 		}

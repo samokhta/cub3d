@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proto.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 15:47:33 by samokhta         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:09:13 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ char	*clean_line(char *src);
 int		get_player_coor(t_map *map);
 char	*skip_empty_lines(int fd);
 
+//utils_display
+void	ft_pixel_put(t_img *img, int x, int y, unsigned int color);
+void	ft_img_init(void *mlx, t_img *new_img, int width, int height);
+
 //utils
 void	format_error(char *msg);
 void	free_params(t_map *map);
@@ -71,13 +75,15 @@ void	print_map(char **map);
 void	print_player_stats(t_player *player);
 
 //window_init
-void	ft_pixel_put(t_img *img, int x, int y, unsigned int color);
 int		key_hook(int keycode, t_data *data);
 int		close_hook(t_data *data);
 void   	ft_window_init(t_data *data);
 
-//minimap
+//minimap_init
 void    ft_minimap(t_data *data);
-void	draw_square(t_data *data, int x, int y, int size);
+void	draw_square(t_img *img, int x, int y, int size);
+
+//background_init
+void	ft_background_init(t_data *data);
 
 #endif

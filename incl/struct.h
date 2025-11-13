@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 14:07:31 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/13 17:10:14 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ typedef struct s_player{
 typedef struct s_data {
 	void		*mlx;
 	void		*win;
-	t_img		img;
+	t_img		wall_img;
+	t_img		background_img;
+	t_img		minimap_img;
+	t_img		player_img;
 	t_map		map;
 	t_player	player;
 }	t_data;

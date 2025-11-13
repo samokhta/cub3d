@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+         #
+#    By: sael <sael@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/11 15:48:41 by samokhta         ###   ########.fr        #
+#    Updated: 2025/11/13 15:37:29 by sael             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC_MAIN	= main_cub3d.c	utils.c init.c
 
 SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
 
-SRC_WIN		= window_init.c minimap_init.c
+SRC_WIN		= window_init.c minimap_init.c background_init.c utils_display.c
 
 SRC			= $(SRC_MAIN)													   \
 			  $(addprefix $(PARS_DIR)/, $(SRC_PARS))						   \
