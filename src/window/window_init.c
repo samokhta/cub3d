@@ -32,8 +32,8 @@ int    key_hook(int keycode, t_data *data)
 	if (keycode == 65307) // Escape key
 	{
 		mlx_destroy_image(data->mlx, data->img.img);
-		mlx_destroy_display(data->mlx);
 		mlx_destroy_window(data->mlx, data->win);
+		mlx_destroy_display(data->mlx);
 		exit(0);
 	}
 	return (0);
@@ -42,8 +42,8 @@ int    key_hook(int keycode, t_data *data)
 int close_hook(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->img.img);
-	mlx_destroy_display(data->mlx);
 	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
 	exit(0);
 	return (0);
 }
