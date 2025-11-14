@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:33:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/13 18:13:11 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 12:27:46 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define MINIMAP_SIZE 10
 
-void	draw_square(t_img *img, int x, int y, int size)
+void	draw_square(t_data *data, int x, int y, int size)
 {
 	int i;
 	int j;
@@ -25,59 +25,94 @@ void	draw_square(t_img *img, int x, int y, int size)
 		j = 0;
 		while (j < size)
 		{
-			ft_pixel_put(img, x + j, y + i, 0xFFFFFF); //might break
+			ft_pixel_put(&data->minimap_img, x + j, y + i, 0xFFFFFF);
 			j++;
 		}
 		i++;
 	}
 }
 
-int	find_size(t_data *data)
+void	draw_square_bg(t_data *data, int x, int y, int size)
 {
-	int	i;
-	int	map_max;
-	int	img_max;
+	int i;
+	int j;
 
 	i = 0;
-	if (data->map.width >= data->map.height)
-		map_max = data->map.width;
-	else
-		map_max = data->map.height;
-	if (WINDOW_WIDTH >= WINDOW_HEIGHT)
-		img_max = WINDOW_HEIGHT / 4;
-	else
-		img_max = WINDOW_WIDTH / 4;
-	while ((i + 1) * map_max <= img_max)
+	while (i < size)
+	{
+		j = 0;
+		while (j < size)
+		{
+			ft_pixel_put(&data->minimap_img, x + j, y + i, rgb_to_int(data->map.f));
+			j++;
+		}
+		i++;
+	}
+}
+
+int	max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	find_size(int img_size, int map_max)
+{
+	int	i;
+	i = 1;
+	while ((i + 1) * map_max <= img_size - 10)
 		i++;
 	
 	printf("tile size: %d\n", i);
 	return (i);
 }
 
-void    ft_minimap(t_data *data)
+void	display_minimap(t_data *data, int tile_size, int offset_x, int offset_y)
 {
 	int x;
 	int y;
 	int map_x;
 	int map_y;
-	int square_size;
 
-	square_size = find_size(data);
 	map_y = 0;
-	y = 0;
-	ft_img_init(data->mlx, &data->minimap_img, WINDOW_WIDTH / 6, WINDOW_HEIGHT / 6);
+	y = offset_y;
 	while (data->map.coor[map_y])
 	{
 		map_x = 0;
-		x = 0;
+		x = offset_x;
 		while (data->map.coor[map_y][map_x])
 		{
 			if (data->map.coor[map_y][map_x] == '1')
-				draw_square(&data->minimap_img, x, y, square_size);
+				draw_square(data, x, y, tile_size);
 			map_x++;
-			x += square_size;
+			x += tile_size;
 		}
 		map_y++;
-		y += square_size;
-	}
+		y += tile_size;
+	}	
+}
+
+int	find_offset(int img_length, int map_length, int tile_size)
+{
+	int	offset;
+
+	offset = img_length - (map_length * tile_size);
+	return (offset / 2);
+}
+
+void    ft_minimap(t_data *data)
+{
+	int	map_max;
+	int tile_size;
+	int	offset_x;
+	int	offset_y;
+
+	map_max = max(data->map.width, data->map.height);
+	tile_size = find_size(WINDOW_WIDTH / 8, map_max);
+	offset_x = find_offset(WINDOW_WIDTH / 8, data->map.width, tile_size);
+	offset_y = find_offset(WINDOW_WIDTH / 8, data->map.height, tile_size);
+	ft_img_init(data->mlx, &data->minimap_img, WINDOW_WIDTH / 8, WINDOW_WIDTH / 8);
+	draw_square_bg(data, 0, 0, WINDOW_WIDTH / 8);
+	display_minimap(data, tile_size, offset_x, offset_y);
 }

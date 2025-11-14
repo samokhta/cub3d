@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/13 16:09:13 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 12:24:50 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,10 @@ void   	ft_window_init(t_data *data);
 
 //minimap_init
 void    ft_minimap(t_data *data);
-void	draw_square(t_img *img, int x, int y, int size);
+void	draw_square(t_data *data, int x, int y, int size);
 
 //background_init
 void	ft_background_init(t_data *data);
+int		rgb_to_int(int *color);
 
 #endif

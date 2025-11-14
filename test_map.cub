@@ -3,9 +3,14 @@ SO textures/south_path.txt
 EA textures/east_path.txt
 WE textures/west_path.txt
 
-F 10, 10, 10
+F 50, 50, 50
 C 100, 100, 100
 	
 11111111
 100000N1
+10000001
+10000001
+10000001
+10000001
+10000001
 11111111

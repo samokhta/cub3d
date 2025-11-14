@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:16:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/13 18:09:49 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 10:42:57 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void    ft_window_init(t_data *data)
 	ft_minimap(data);
 
 	mlx_put_image_to_window(data->mlx, data->win, data->background_img.img, 0, 0);
-	mlx_put_image_to_window(data->mlx, data->win, data->minimap_img.img, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->win, data->minimap_img.img, 20, 20);
     mlx_key_hook(data->win, key_hook, data);
     mlx_hook(data->win, 17, 0, close_hook, data);
     return ;
