@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:33:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/14 12:27:46 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 16:03:20 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int	find_size(int img_size, int map_max)
 	i = 1;
 	while ((i + 1) * map_max <= img_size - 10)
 		i++;
-	
-	printf("tile size: %d\n", i);
+	//printf("tile size: %d\n", i);
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 12:24:50 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 17:13:35 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	print_player_stats(t_player *player);
 
 //window_init
 int		key_hook(int keycode, t_data *data);
-int		close_hook(t_data *data);
+int close_window(t_data *data);
 void   	ft_window_init(t_data *data);
 
 //minimap_init
@@ -86,5 +86,8 @@ void	draw_square(t_data *data, int x, int y, int size);
 //background_init
 void	ft_background_init(t_data *data);
 int		rgb_to_int(int *color);
+
+//movement
+void	input_check(t_data *data);
 
 #endif

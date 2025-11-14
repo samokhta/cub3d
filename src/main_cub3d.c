@@ -6,12 +6,22 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/13 15:44:13 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 17:01:58 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+int	game_loop(t_data *data)
+{
+	(void)data;
+	ft_background_init(data);
+	ft_minimap(data);
+	input_check(data);
+	mlx_put_image_to_window(data->mlx, data->win, data->screen_img.img, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->win, data->minimap_img.img, 20, 20);
+	return (1);
+}
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -23,6 +33,7 @@ int	main(int argc, char **argv)
 	initialise_player(&data.player, &data.map);
 	print_player_stats(&data.player);
 	ft_window_init(&data);
+	mlx_loop_hook(data.mlx, game_loop, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

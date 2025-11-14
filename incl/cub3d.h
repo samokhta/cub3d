@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 06:38:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/13 15:22:51 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 16:10:41 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 # include <math.h>
+# include <sys/types.h>
+# include <stdbool.h>
 # include "../libft/libft_src/libft.h"
 # include "../libft/printf_src/ft_printf.h"
 # include "../libft/gnl_src/get_next_line.h"
@@ -33,5 +35,19 @@
 # define GREEN 0x27e427
 # define RED 0xc30d0d
 # define BLUE 0x0d5cb7
+
+# define KEY_W			119
+# define KEY_A			97
+# define KEY_S			115
+# define KEY_D			100
+
+# define KEY_UP			65362
+# define KEY_DOWN		65364
+# define KEY_LEFT		65361
+# define KEY_RIGHT		65363
+
+# define KEY_ESC		65307
+# define KEY_SPACE		32
+# define KEY_E			101
 
 #endif

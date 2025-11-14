@@ -11,13 +11,13 @@ void	ft_background_init(t_data *data)
 	int	y;
 
 	y = 0;
-	ft_img_init(data->mlx, &data->background_img, WINDOW_WIDTH, WINDOW_HEIGHT);
+	ft_img_init(data->mlx, &data->screen_img, WINDOW_WIDTH, WINDOW_HEIGHT);
 	while (y < (WINDOW_HEIGHT / 2))
 	{
 		x = 0;
 		while (x < WINDOW_WIDTH)
 		{
-			ft_pixel_put(&data->background_img, x, y, rgb_to_int(data->map.c));
+			ft_pixel_put(&data->screen_img, x, y, rgb_to_int(data->map.c));
 			x++;
 		}
 		y++;
@@ -27,7 +27,7 @@ void	ft_background_init(t_data *data)
 		x = 0;
 		while (x < WINDOW_WIDTH)
 		{
-			ft_pixel_put(&data->background_img, x, y, rgb_to_int(data->map.f));
+			ft_pixel_put(&data->screen_img, x, y, rgb_to_int(data->map.f));
 			x++;
 		}
 		y++;

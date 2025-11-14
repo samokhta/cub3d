@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/13 17:10:14 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/14 16:26:51 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,26 @@ typedef struct s_player{
 	double	plane_y;
 }	t_player;
 
+typedef struct s_key
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	left_arr;
+	bool	right_arr;
+	bool	esc;
+}	t_key;
+
 typedef struct s_data {
 	void		*mlx;
 	void		*win;
-	t_img		wall_img;
-	t_img		background_img;
+	t_img		screen_img;
 	t_img		minimap_img;
-	t_img		player_img;
 	t_map		map;
+	t_key		key;
 	t_player	player;
 }	t_data;
+
 //note: ajouter plusieurs t_img pour la minimap/le fond
 #endif
