@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/12 16:43:49 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:52:18 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_ray{
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
+	char	*texture;
 }	t_ray;
 
 typedef struct s_data {
