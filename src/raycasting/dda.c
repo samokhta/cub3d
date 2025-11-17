@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:02:17 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 16:56:40 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 10:54:33 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ void	dda(t_data *data, t_ray *ray)
 void	get_wall_dist(t_data *data, t_ray *ray)
 {
 	if (ray->side == 0)
-		ray->perp_wall_dist = (ray->map_x - data->player.x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
+		ray->perp_wall_dist = (ray->map_x - data->player.x
+				+ (1 - ray->step_x) / 2) / ray->ray_dir_x;
 	else
-		ray->perp_wall_dist = (ray->map_y - data->player.y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
+		ray->perp_wall_dist = (ray->map_y - data->player.y
+				+ (1 - ray->step_y) / 2) / ray->ray_dir_y;
 }
 
 void	get_wall_height(t_ray *ray)
@@ -53,22 +55,4 @@ void	get_wall_height(t_ray *ray)
 	ray->draw_end = ray->line_height / 2 + WINDOW_HEIGHT / 2;
 	if (ray->draw_end >= WINDOW_HEIGHT)
 		ray->draw_end = WINDOW_HEIGHT - 1;
-}
-
-void	get_texture(t_data *data, t_ray *ray)
-{
-	if (ray->side == 0)
-	{
-		if (ray->ray_dir_x > 0)
-			ray->texture = data->map.ea;
-		else
-			ray->texture = data->map.we;
-	}
-	else
-	{
-		if (ray->ray_dir_y > 0)
-			ray->texture = data->map.so;
-		else
-			ray->texture = data->map.no;
-	}
 }

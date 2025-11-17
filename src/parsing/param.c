@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 15:44:22 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 16:37:59 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:56:55 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	assign_texture(char *line, char **param)
 	path = clean_line(line + 3);
 	if (!path)
 		return (format_error("texture malloc failed"), 0);
+	if (ft_strncmp(path + ft_strlen(path) - 4, ".xpm", 4))
+		return (format_error("texture is not .xpm"), 0);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (format_error("cannot open texture path"), 0);

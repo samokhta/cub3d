@@ -6,13 +6,13 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:44:22 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 13:42:17 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 10:52:26 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	raycasting (t_data *data)
+void	raycasting(t_data *data)
 {
 	int		x;
 	t_ray	ray;
@@ -31,4 +31,3 @@ void	raycasting (t_data *data)
 		x++;
 	}
 }
-

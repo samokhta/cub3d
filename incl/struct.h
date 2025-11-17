@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 16:52:18 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:45:09 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ typedef struct s_map
 	int		height;
 	int		width;
 	char	**coor;
+	int		tex_size;
+	void	*tex_no;
+	void	*tex_so;
+	void	*tex_ea;
+	void	*tex_we;
 }	t_map;
 
 typedef struct s_img {
@@ -71,7 +76,9 @@ typedef struct s_ray{
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
-	char	*texture;
+	void	*texture;
+	int		tex_x;
+	double	wall_x;
 }	t_ray;
 
 typedef struct s_data {

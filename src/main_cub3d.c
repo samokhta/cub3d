@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 14:44:23 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:29:13 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	initialise_player(&data.player, &data.map);
 	print_player_stats(&data.player);
 	ft_window_init(&data);
+	//validate textures, needs mlx init;
 	// ft_mlx_hook(&data);
 	// ft_mlx_destroy(&data, 1);
 	return (0);

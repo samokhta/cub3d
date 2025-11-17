@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 13:42:06 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:41:48 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int 	assign_texture(char *line, char **param);
 int		assign_color(char *line, int *param, int i_color);
 int		assign_param(char *line, t_map *map);
 int		read_params(int fd, t_map *map);
+int		get_all_tex(t_data *data);
 
 //utils_lst
 t_list	*new_node(char *content);

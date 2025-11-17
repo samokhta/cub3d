@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:46:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 14:22:41 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:45:24 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	initialise_param(t_map *map)
 	map->p_dir = 'F';
 	map->lst = NULL;
 	map->coor = NULL;
+	map->tex_size = 0;
 }
 
 void	assign_dir_and_plane(t_player *player, double dir_x, double dir_y, double plane_x, double plane_y)
