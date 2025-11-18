@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/17 12:41:48 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/18 09:40:42 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void	dda(t_data *data, t_ray *ray);
 void	get_wall_dist(t_data *data, t_ray *ray);
 void	get_wall_height(t_ray *ray);
 void	get_texture(t_data *data, t_ray *ray);
+void	draw_line(t_data *data, t_ray *ray, int x);
 
 #endif

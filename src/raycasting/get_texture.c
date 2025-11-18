@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:32:29 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/17 12:46:14 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/18 09:43:14 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ void	get_texture_coor(t_data *data, t_ray *ray)
 	if ((ray->side == 0 && ray->ray_dir_x > 0)
 		|| (ray->side == 1 && ray->ray_dir_y < 0))
 		ray->tex_x = data->map.tex_size - ray->tex_x - 1;
+}
+
+void	get_texture(t_data *data, t_ray *ray)
+{
+	pick_texture(data, ray);
+	get_texture_coor(data, ray);
 }
