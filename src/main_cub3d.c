@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 17:01:58 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:59:44 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	game_loop(t_data *data)
 	input_check(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->screen_img.img, 0, 0);
 	mlx_put_image_to_window(data->mlx, data->win, data->minimap_img.img, 20, 20);
+	mlx_destroy_image(data->mlx, data->screen_img.img);	
 	return (1);
 }
 int	main(int argc, char **argv)

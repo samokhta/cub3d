@@ -7,7 +7,7 @@ void	ft_pixel_put(t_img *img, int x, int y, unsigned int color)
 
 	if (x < 0 || y < 0 || x >= img->width || y >= img->height)
 	{
-		printf("pixel out of bounds\n");
+		//printf("pixel out of bounds\n");
 		return;
 	}
 	offset = (y * img->line_length + x * (img->bits_per_pixel / 8));

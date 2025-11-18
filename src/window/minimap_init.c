@@ -6,7 +6,7 @@
 /*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:33:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/14 16:03:20 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/18 15:34:21 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,30 @@ int	find_offset(int img_length, int map_length, int tile_size)
 	return (offset / 2);
 }
 
+void	display_player(t_data *data, int tile_size, int offset_x, int offset_y)
+{
+	int	player_x;
+	int	player_y;
+	int	size;
+	int	i;
+	int	j;
+
+	player_x = (int)(data->player.x * tile_size) + offset_x;
+	player_y = (int)(data->player.y * tile_size) + offset_y;
+	size = tile_size / 2;
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < size)
+		{
+			ft_pixel_put(&data->minimap_img, player_x + j - size / 2, player_y + i - size / 2, 0xFF0000);
+			j++;
+		}
+		i++;
+	}
+}
+
 void    ft_minimap(t_data *data)
 {
 	int	map_max;
@@ -114,4 +138,5 @@ void    ft_minimap(t_data *data)
 	ft_img_init(data->mlx, &data->minimap_img, WINDOW_WIDTH / 8, WINDOW_WIDTH / 8);
 	draw_square_bg(data, 0, 0, WINDOW_WIDTH / 8);
 	display_minimap(data, tile_size, offset_x, offset_y);
+	display_player(data, tile_size, offset_x, offset_y);
 }
