@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:46:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 15:24:06 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:37:42 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	initialise_param(t_map *map)
 	map->p_dir = 'F';
 	map->lst = NULL;
 	map->coor = NULL;
+	map->tex_size = 0;
 	map->tex_size = 0;
 }
 

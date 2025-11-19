@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 15:24:02 by sravizza         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2025/11/19 15:37:13 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PROTO_H
 # define PROTO_H
@@ -75,6 +76,8 @@ void	format_error(char *msg);
 void	free_params(t_map *map);
 void	free_double(char **str);
 void	free_all(t_data *data);
+void	free_double(char **str);
+void	free_all(t_data *data);
 
 //init
 int		ft_isfilename(int c);
@@ -100,6 +103,7 @@ void	print_params(t_map *map);
 void	print_map(char **map);
 void	print_player_stats(t_player *player);
 
+//WINDOW
 //WINDOW
 //window_init
 int		key_hook(int keycode, t_data *data);
