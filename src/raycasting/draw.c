@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:42:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/18 09:41:18 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 13:38:19 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_line(t_data *data, t_ray *ray, int x)
 		tex_y = (int)tex_pos & (data->map.tex_size - 1);
 		tex_pos += step;
 		color = get_texture_pixel(ray->texture, ray->tex_x, tex_y);
-		ft_pixel_put(&data->img, x, y, color);
+		ft_pixel_put(&data->screen_img, x, y, color);
 		y++;
 	}
 }

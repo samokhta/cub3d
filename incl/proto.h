@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proto.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/14 17:13:35 by sael             ###   ########.fr       */
+/*   Updated: 2025/11/19 13:49:46 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,26 @@ void	ft_img_init(void *mlx, t_img *new_img, int width, int height);
 //utils
 void	format_error(char *msg);
 void	free_params(t_map *map);
-void	free_all(char **str);
+void	free_double(char **str);
+void	free_all(t_data *data);
 
 //init
 int		ft_isfilename(int c);
 void	initialise_param(t_map *map);
 int		check_filename(char *str);
 void	initialise_player(t_player *player, t_map *map);
+
+//RAYCASTING
+void	get_texture(t_data *data, t_ray *ray);
+void	raycasting(t_data *data);
+void	dda(t_data *data, t_ray *ray);
+void	get_wall_dist(t_data *data, t_ray *ray);
+void	get_wall_height(t_ray *ray);
+void	draw_line(t_data *data, t_ray *ray, int x);
+void	init_ray(t_data *data, t_ray *ray, int x);
+void	init_step_and_side_dist(t_data *data, t_ray *ray);
+void	free_textures(t_data *data);
+
 
 //tests
 void	print_params(t_map *map);

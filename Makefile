@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sael <sael@student.42.fr>                  +#+  +:+       +#+         #
+#    By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/14 16:59:06 by sael             ###   ########.fr        #
+#    Updated: 2025/11/19 13:50:26 by samokhta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ OBJ_DIR		= obj
 INCL_DIR	= incl
 PARS_DIR	= parsing
 WIN_DIR		= window
+RAY_DIR		= raycasting
 MOV_DIR		= movement
 
 ################################################################################
@@ -31,11 +32,14 @@ SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
 SRC_WIN = window_init.c minimap_init.c background_init.c utils_display.c
 
 SRC_MOV		= movement.c
+SRC_WIN		= window_init.c
+
+SRC_RAY		= raycasting.c	dda.c init_ray.c get_texture.c draw.c
 
 SRC			= $(SRC_MAIN)													   \
 			  $(addprefix $(PARS_DIR)/, $(SRC_PARS))						   \
 			  $(addprefix $(WIN_DIR)/, $(SRC_WIN))							   \
-			  $(addprefix $(MOV_DIR)/, $(SRC_MOV))
+			  $(addprefix $(RAY_DIR)/, $(SRC_RAY))							   
 
 LIBFT_LIB	= $(LIBFT_DIR)/libft.a
 MLX_LIB		= $(MLX_DIR)/libmlx.a
@@ -69,12 +73,11 @@ $(OBJ_DIR)/%.o: $(PARS_DIR)/%.c | create_obj_dirs
 $(OBJ_DIR)/%.o: $(WIN_DIR)/%.c | create_obj_dirs
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(MOV_DIR)/%.c | create_obj_dirs
+$(OBJ_DIR)/%.o: $(RAY_DIR)/%.c | create_obj_dirs
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
 create_obj_dirs:
-	mkdir -p	$(OBJ_DIR)/$(PARS_DIR) $(OBJ_DIR)/$(WIN_DIR) $(OBJ_DIR)/$(MOV_DIR)
+	mkdir -p	$(OBJ_DIR)/$(PARS_DIR) $(OBJ_DIR)/$(WIN_DIR) $(OBJ_DIR)/$(RAY_DIR)
 
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR) > /dev/null
