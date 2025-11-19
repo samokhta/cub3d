@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:58:24 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 15:16:54 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:05:05 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	parsing(char *file, t_map *map)
 		// wrong
 	close(fd);
 	if (!validate_map(map))
-		return (format_error("map is not valid"), 0);
+		return (free_params(map), 0);
 	return (1);
 }
