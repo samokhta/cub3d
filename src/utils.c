@@ -6,13 +6,13 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:59:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 16:32:13 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 11:17:20 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_all(char **str)
+void	free_double(char **str)
 {
 	int	i;
 
@@ -42,5 +42,11 @@ void	free_params(t_map *map)
 	free(map->ea);
 	free(map->we);
 	free_lst(&(map->lst));
-	free_all(map->coor);
+	free_double(map->coor);
+}
+
+void	free_all(t_data *data)
+{
+	free_params(&data->map);
+	free_textures(data);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sael <sael@student.42.fr>                  +#+  +:+       +#+         #
+#    By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/14 16:59:06 by sael             ###   ########.fr        #
+#    Updated: 2025/11/19 13:31:20 by sravizza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ OBJ_DIR		= obj
 INCL_DIR	= incl
 PARS_DIR	= parsing
 WIN_DIR		= window
+RAY_DIR		= raycasting
 MOV_DIR		= movement
 
 ################################################################################
@@ -26,15 +27,19 @@ MOV_DIR		= movement
 
 SRC_MAIN	= main_cub3d.c	utils.c init.c
 
-SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
+SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c 		   \
+			  floodfill.c val_tex.c
 
 SRC_WIN = window_init.c minimap_init.c background_init.c utils_display.c
 
 SRC_MOV		= movement.c
 
+SRC_RAY		= raycasting.c	dda.c init_ray.c get_texture.c draw.c
+
 SRC			= $(SRC_MAIN)													   \
 			  $(addprefix $(PARS_DIR)/, $(SRC_PARS))						   \
 			  $(addprefix $(WIN_DIR)/, $(SRC_WIN))							   \
+			  $(addprefix $(RAY_DIR)/, $(SRC_RAY))							   							   \
 			  $(addprefix $(MOV_DIR)/, $(SRC_MOV))
 
 LIBFT_LIB	= $(LIBFT_DIR)/libft.a
@@ -72,9 +77,11 @@ $(OBJ_DIR)/%.o: $(WIN_DIR)/%.c | create_obj_dirs
 $(OBJ_DIR)/%.o: $(MOV_DIR)/%.c | create_obj_dirs
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR)/%.o: $(RAY_DIR)/%.c | create_obj_dirs
+	$(CC) $(CFLAGS) -c $< -o $@
 
 create_obj_dirs:
-	mkdir -p	$(OBJ_DIR)/$(PARS_DIR) $(OBJ_DIR)/$(WIN_DIR) $(OBJ_DIR)/$(MOV_DIR)
+	mkdir -p	$(OBJ_DIR)/$(PARS_DIR) $(OBJ_DIR)/$(WIN_DIR) $(OBJ_DIR)/$(RAY_DIR) $(OBJ_DIR)/$(MOV_DIR)
 
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR) > /dev/null
