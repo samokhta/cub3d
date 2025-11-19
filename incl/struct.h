@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/17 12:45:09 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 13:26:38 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct s_img {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		height;
+	int		width;
 }	t_img;
 
 typedef struct s_player{
@@ -59,6 +61,17 @@ typedef struct s_player{
 	double	plane_x;
 	double	plane_y;
 }	t_player;
+
+typedef struct s_key
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	left_arr;
+	bool	right_arr;
+	bool	esc;
+}	t_key;
 
 typedef struct s_ray{
 	double	ray_dir_x;
@@ -84,9 +97,12 @@ typedef struct s_ray{
 typedef struct s_data {
 	void		*mlx;
 	void		*win;
-	t_img		img;
+	t_img		screen_img;
+	t_img		minimap_img;
 	t_map		map;
+	t_key		key;
 	t_player	player;
 }	t_data;
 
+//note: ajouter plusieurs t_img pour la minimap/le fond
 #endif

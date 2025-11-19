@@ -3,69 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:16:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/11 15:19:14 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:12:37 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_pixel_put(t_img *img, int x, int y, unsigned int color)
+int close_window(t_data *data)
 {
-	int		offset;
-	char	*dst;
-
-	offset = (y * img->line_length + x * (img->bits_per_pixel / 8));
-	dst = img->addr + offset;
-	*(unsigned int *)dst = color;
+	(void)data;
+	//mlx_destroy_image(data->mlx, data->wall_img.img);
+	//mlx_destroy_window(data->mlx, data->win);
+	//mlx_destroy_display(data->mlx);
+	exit(0);
+	return (0);
 }
 
-int    key_hook(int keycode, t_data *data)
+int	key_press(int key, t_data *data)
 {
-    (void)data;
-    if (keycode == 65307) // Escape key
-    {
-        // Add any necessary cleanup code here
-        exit(0);
-    }
-    return (0);
+	if (key == KEY_ESC)
+		data->key.esc = true;
+	if (key == KEY_W)
+		data->key.w = true;
+	if (key == KEY_S)
+		data->key.s = true;
+	if (key == KEY_A)
+		data->key.a = true;
+	if (key == KEY_D)
+		data->key.d = true;
+	if (key == KEY_LEFT)
+		data->key.left_arr = true;
+	if (key == KEY_RIGHT)
+		data->key.right_arr = true;
+	return (0);
 }
 
-int close_hook(t_data *data)
+int	key_unpress(int key, t_data *data)
 {
-    (void)data;
-    // Add any necessary cleanup code here
-    exit(0);
-    return (0);
+	if (key == KEY_ESC)
+		data->key.esc = false;
+	if (key == KEY_W)
+		data->key.w = false;
+	if (key == KEY_S)
+		data->key.s = false;
+	if (key == KEY_A)
+		data->key.a = false;
+	if (key == KEY_D)
+		data->key.d = false;
+	if (key == KEY_LEFT)
+		data->key.left_arr = false;
+	if (key == KEY_RIGHT)
+		data->key.right_arr = false;
+	return (0);
 }
 
-// void    ft_window_init(t_data *dataptr)
-// {
-//     t_data   data;
-
-//     data = *dataptr;
-// 	data.mlx = mlx_init();
-//     data.img.img = mlx_new_image(data.mlx, 1920, 1080);
-//     data.img.addr = mlx_get_data_addr(data.img.img,
-//             &data.img.bits_per_pixel, &data.img.line_length, &data.img.endian);
-// 	data.win = mlx_new_window(data.mlx, 1920, 1080, "cub3d");
-//     mlx_key_hook(data.win, key_hook, &data);
-//     mlx_hook(data.win, 17, 0, close_hook, &data);
-// 	mlx_loop(data.mlx);
-//     return ;
-// }
+void	init_keys(t_data *data)
+{
+	data->key.w = false;
+	data->key.a = false;
+	data->key.s = false;
+	data->key.d = false;
+	data->key.left_arr = false;
+	data->key.right_arr = false;
+	data->key.esc = false;
+}
 
 void    ft_window_init(t_data *data)
 {
 	data->mlx = mlx_init();
-    data->img.img = mlx_new_image(data->mlx, 1920, 1080);
-    data->img.addr = mlx_get_data_addr(data->img.img,
-            &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
-	data->win = mlx_new_window(data->mlx, 1920, 1080, "cub3d");
-    mlx_key_hook(data->win, key_hook, &data);
-    mlx_hook(data->win, 17, 0, close_hook, &data);
-	mlx_loop(data->mlx);
+	data->win = mlx_new_window(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");
+
+	init_keys(data);
+    mlx_key_hook(data->win, key_press, data);
+	mlx_hook(data->win, 2, 1L << 0, key_press, data);
+	mlx_hook(data->win, 3, 1L << 1, key_unpress, data);
+    mlx_hook(data->win, 17, 0, close_window, data);
     return ;
 }

@@ -1,0 +1,10 @@
+cub3d ressources:
+https://github.com/f-corvaro/CUB3D?tab=readme-ov-file#event-handling-in-minilibx
+
+https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf#:~:text=each%20function%20does.-,Part%202%3A%20Raycasting%3A,-Now%20let%20me
+
+https://gitlab.com/madebypixel02/cub3d#raycasting
+
+https://hackmd.io/@nszl/H1LXByIE2#cub3d
+
+https://lodev.org/cgtutor/raycasting.html 
