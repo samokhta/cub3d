@@ -30,4 +30,5 @@ void	input_check(t_data *data)
 		close_window(data);
 }
 
-//TODO: changer les prints de sorte a ce que ca update la position
+//TODO: update la position wasd de sorte a ce que ca depende de la camera
+//TODO: fix leaks/invalid reads
