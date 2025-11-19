@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 13:24:06 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:01:58 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	game_loop(t_data *data)
 	ft_background_init(data);
 	ft_minimap(data);
 	input_check(data);
+	raycasting(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->screen_img.img, 0, 0);
 	mlx_put_image_to_window(data->mlx, data->win, data->minimap_img.img, 20, 20);
 	mlx_destroy_image(data->mlx, data->screen_img.img);	
@@ -34,6 +35,8 @@ int	main(int argc, char **argv)
 	initialise_player(&data.player, &data.map);
 	//print_player_stats(&data.player);
 	ft_window_init(&data);
+	if (!get_all_tex(&data))
+		return (free_all(&data), 1);
 	mlx_loop_hook(data.mlx, game_loop, &data);
 	mlx_loop(data.mlx);
 	return (0);

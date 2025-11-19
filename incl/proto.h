@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 13:37:20 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:14:24 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	draw_line(t_data *data, t_ray *ray, int x);
 void	init_ray(t_data *data, t_ray *ray, int x);
 void	init_step_and_side_dist(t_data *data, t_ray *ray);
 void	free_textures(t_data *data);
+int		get_all_tex(t_data *data);
 
 
 //TEST

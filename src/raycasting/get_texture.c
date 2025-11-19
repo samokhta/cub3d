@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures.c                                         :+:      :+:    :+:   */
+/*   get_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 10:32:29 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/18 09:43:14 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:27:01 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_texture_coor(t_data *data, t_ray *ray)
 	if (ray->side == 0)
 		ray->wall_x = data->player.y + ray->perp_wall_dist * ray->ray_dir_y;
 	else
-		ray->wall_x = data->player.x + ray->perp_wall_dist * ray->ray_dir_y;
+		ray->wall_x = data->player.x + ray->perp_wall_dist * ray->ray_dir_x;
 	ray->wall_x -= floor(ray->wall_x);
 	ray->tex_x = (int)(ray->wall_x * data->map.tex_size);
 	if ((ray->side == 0 && ray->ray_dir_x > 0)
