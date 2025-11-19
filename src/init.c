@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:46:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/17 12:45:24 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 12:29:17 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isfilename(int c)
 {
-	if (ft_isalnum(c) || c == '-' || c == '_')
+	if (ft_isalnum(c) || c == '-' || c == '_' || c == '/' || c == '.')
 		return (1);
 	return (0);
 }

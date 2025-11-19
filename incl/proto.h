@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/18 09:40:42 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 11:20:51 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_mlx_destroy(t_data *data, int map);
 //utils
 void	format_error(char *msg);
 void	free_params(t_map *map);
-void	free_all(char **str);
+void	free_double(char **str);
+void	free_all(t_data *data);
 
 //init
 int		ft_isfilename(int c);
@@ -50,7 +51,6 @@ int 	assign_texture(char *line, char **param);
 int		assign_color(char *line, int *param, int i_color);
 int		assign_param(char *line, t_map *map);
 int		read_params(int fd, t_map *map);
-int		get_all_tex(t_data *data);
 
 //utils_lst
 t_list	*new_node(char *content);
@@ -64,6 +64,10 @@ int		empty_line(char *str);
 char	*clean_line(char *src);
 int		get_player_coor(t_map *map);
 char	*skip_empty_lines(int fd);
+
+//textures
+int		get_all_tex(t_data *data);
+void	free_textures(t_data *data);
 
 //TEST
 void	print_params(t_map *map);

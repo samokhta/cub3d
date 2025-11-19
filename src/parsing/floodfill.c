@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:16:57 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/11 13:45:18 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 11:18:20 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int	validate_map(t_map *map)
 	if (!flood)
 		return (format_error("malloc fail"), 0);
 	if (!flood_fill(map, flood, map->p_row, map->p_col))
-		return (free_all(flood), 0);
-	return (free_all(flood), 1);
+		return (free_double(flood), 0);
+	return (free_double(flood), 1);
 }

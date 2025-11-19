@@ -6,7 +6,7 @@
 #    By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 09:56:12 by sravizza          #+#    #+#              #
-#    Updated: 2025/11/18 09:45:26 by sravizza         ###   ########.fr        #
+#    Updated: 2025/11/19 11:21:58 by sravizza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ RAY_DIR		= raycasting
 
 SRC_MAIN	= main_cub3d.c	utils.c init.c
 
-SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c floodfill.c
+SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c 		   \
+			  floodfill.c val_tex.c
 
 SRC_WIN		= window_init.c
 

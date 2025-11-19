@@ -1,7 +1,7 @@
-NO wolf_tex/mossy.png
-SO wolf_tex/eagle.png
-EA wolf_tex/redbrick.png
-WE wolf_tex/wood.png
+NO wolf_tex/mossy.xpm
+SO wolf_tex/eagle.xpm
+EA wolf_tex/redbrick.xpm
+WE wolf_tex/wood.xpm
 
 F 0, 102, 0
 C 0, 128, 255
