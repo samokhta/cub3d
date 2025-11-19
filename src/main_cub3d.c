@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:58:00 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 15:01:58 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:16:43 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 	if (!parsing(argv[1], &data.map))
 		return (1);
 	initialise_player(&data.player, &data.map);
-	//print_player_stats(&data.player);
 	ft_window_init(&data);
 	if (!get_all_tex(&data))
 		return (free_all(&data), 1);

@@ -6,18 +6,11 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:46:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 12:29:17 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:24:06 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	ft_isfilename(int c)
-{
-	if (ft_isalnum(c) || c == '-' || c == '_' || c == '/' || c == '.')
-		return (1);
-	return (0);
-}
 
 int	check_filename(char *str)
 {
@@ -59,10 +52,14 @@ void	initialise_param(t_map *map)
 	map->tex_size = 0;
 }
 
-void	assign_dir_and_plane(t_player *player, double dir_x, double dir_y, double plane_x, double plane_y)
+void	assign_dir(t_player *player, double dir_x, double dir_y)
 {
 	player->dir_x = dir_x;
 	player->dir_y = dir_y;
+}
+
+void	assign_plane(t_player *player, double plane_x, double plane_y)
+{
 	player->plane_x = plane_x;
 	player->plane_y = plane_y;
 }
@@ -72,11 +69,23 @@ void	initialise_player(t_player *player, t_map *map)
 	player->x = (double)map->p_col + 0.5;
 	player->y = (double)map->p_row + 0.5;
 	if (map->p_dir == 'N')
-		assign_dir_and_plane(player, 0.0, -1.0, 0.66, 0.0);
+	{
+		assign_dir(player, 0.0, -1.0);
+		assign_plane(player, 0.66, 0.0);
+	}
 	if (map->p_dir == 'S')
-		assign_dir_and_plane(player, 0.0, 1.0, -0.66, 0.0);
+	{
+		assign_dir(player, 0.0, 1.0);
+		assign_plane(player, -0.66, 0.0);
+	}
 	if (map->p_dir == 'E')
-		assign_dir_and_plane(player, 1.0, 0.0, 0.0, 0.66);
+	{
+		assign_dir(player, 1.0, 0.0);
+		assign_plane(player, 0.0, 0.66);
+	}
 	if (map->p_dir == 'W')
-		assign_dir_and_plane(player, -1.0, 0.0, 0.0, -0.66);
+	{
+		assign_dir(player, -1.0, 0.0);
+		assign_plane(player, 0.0, -0.66);
+	}
 }

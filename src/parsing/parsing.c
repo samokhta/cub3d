@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:58:24 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 14:57:26 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:16:54 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,7 @@ int	parsing(char *file, t_map *map)
 	// if something left
 		// wrong
 	close(fd);
-	// print_params(map);
-	// ft_printf("\nPLAYER:\nrow: %i\ncol: %i\ndir: %c\n", map->p_row, map->p_col, map->p_dir);
-	// ft_printf("\nMAP:\nheight: %i\nwidth: %i\n", map->height, map->width);
 	if (!validate_map(map))
 		return (format_error("map is not valid"), 0);
-	// printf("\nMAP VALIDATED\n"); //remove later
-	// print_map(map->coor);
 	return (1);
 }

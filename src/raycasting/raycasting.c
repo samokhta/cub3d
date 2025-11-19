@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:44:22 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/18 09:39:48 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:16:58 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	raycasting(t_data *data)
 	int		x;
 	t_ray	ray;
 
-	// clear_window(data); drae ceiling and floor
 	x = 0;
 	while (x < WINDOW_WIDTH)
 	{

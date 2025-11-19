@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:59:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 11:17:20 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:24:12 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,11 @@ void	free_all(t_data *data)
 {
 	free_params(&data->map);
 	free_textures(data);
+}
+
+int	ft_isfilename(int c)
+{
+	if (ft_isalnum(c) || c == '-' || c == '_' || c == '/' || c == '.')
+		return (1);
+	return (0);
 }

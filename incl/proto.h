@@ -6,7 +6,7 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:32:40 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 14:14:24 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:24:02 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	format_error(char *msg);
 void	free_params(t_map *map);
 void	free_double(char **str);
 void	free_all(t_data *data);
+int		ft_isfilename(int c);
 
 //init
 int		ft_isfilename(int c);
