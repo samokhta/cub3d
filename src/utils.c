@@ -6,13 +6,12 @@
 /*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:59:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 15:38:15 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:41:54 by sravizza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_double(char **str)
 void	free_double(char **str)
 {
 	int	i;
