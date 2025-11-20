@@ -43,7 +43,8 @@ typedef struct s_map
 	void	*tex_we;
 }	t_map;
 
-typedef struct s_img {
+typedef struct s_img
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -53,7 +54,8 @@ typedef struct s_img {
 	int		width;
 }	t_img;
 
-typedef struct s_player{
+typedef struct s_player
+{
 	double	x;
 	double	y;
 	double	dir_x;
@@ -73,7 +75,8 @@ typedef struct s_key
 	bool	esc;
 }	t_key;
 
-typedef struct s_ray{
+typedef struct s_ray
+{
 	double	ray_dir_x;
 	double	ray_dir_y;
 	int		map_x;
@@ -94,7 +97,8 @@ typedef struct s_ray{
 	double	wall_x;
 }	t_ray;
 
-typedef struct s_data {
+typedef struct s_data
+{
 	void		*mlx;
 	void		*win;
 	t_img		screen_img;

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2025/11/19 15:38:04 by sravizza         ###   ########.fr       */
+/*   Created: 2025-11-20 14:19:00 by samokhta          #+#    #+#             */
+/*   Updated: 2025-11-20 14:19:00 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3d.h"
 
@@ -21,10 +20,12 @@ int	game_loop(t_data *data)
 	input_check(data);
 	raycasting(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->screen_img.img, 0, 0);
-	mlx_put_image_to_window(data->mlx, data->win, data->minimap_img.img, 20, 20);
-	mlx_destroy_image(data->mlx, data->screen_img.img);	
+	mlx_put_image_to_window(data->mlx, data->win,
+		data->minimap_img.img, 20, 20);
+	mlx_destroy_image(data->mlx, data->screen_img.img);
 	return (1);
 }
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
