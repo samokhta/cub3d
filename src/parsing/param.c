@@ -91,6 +91,8 @@ int	read_params(int fd, t_map *map)
 		if (!empty_line(line) && !assign_param(line, map))
 			return (free(line), 0);
 		free(line);
+		if (params_complete(map))
+			return (1);
 		line = get_next_line(fd);
 	}
 	return (1);

@@ -1,11 +1,11 @@
-NO wolf_tex/error.xpm
+NO wolf_tex/error2.xpm
 SO wolf_tex/greystone.xpm
 EA wolf_tex/redbrick.xpm
 WE wolf_tex/wood.xpm
 
 F 0, 102, 0
 C 0, 128, 255
-	
+
        11111111111111
        100S0000000001
 111111110000111111001

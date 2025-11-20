@@ -27,7 +27,7 @@ int	empty_line(char *str)
 	i = 0;
 	while (str[i] && str[i] == ' ')
 		i++;
-	if (str[i] && str[i] == '\n')
+	if ((str[i] && str[i] == '\n') || str[i] == '\0')
 		return (1);
 	return (0);
 }

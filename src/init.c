@@ -51,6 +51,10 @@ void	initialise_param(t_map *map)
 	map->coor = NULL;
 	map->tex_size = 0;
 	map->tex_size = 0;
+	map->tex_no = NULL;
+	map->tex_so = NULL;
+	map->tex_ea = NULL;
+	map->tex_we = NULL;
 }
 
 void	assign_dir(t_player *player, double dir_x, double dir_y)

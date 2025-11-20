@@ -91,12 +91,13 @@ char	*remove_nl(char *src)
 int	read_map(int fd, t_map *map, int max_length, t_list *lst)
 {
 	char	*line;
-	int		line_length;
 	t_list	*node;
 
 	line = skip_empty_lines(fd);
-	while (line && !empty_line(line))
+	while (line)
 	{
+		if (empty_line(line))
+			return (free(line), format_error("invalid char in map"), 0);
 		remove_nl(line);
 		if (!is_map(line))
 			return (free(line), 0);
@@ -104,9 +105,8 @@ int	read_map(int fd, t_map *map, int max_length, t_list *lst)
 		if (!node)
 			return (0);
 		node_add_back(&lst, node);
-		line_length = ft_strlen(line);
-		if (line_length > max_length)
-			max_length = line_length;
+		if ((int)ft_strlen(line) > max_length)
+			max_length = ft_strlen(line);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -115,3 +115,31 @@ int	read_map(int fd, t_map *map, int max_length, t_list *lst)
 		return (0);
 	return (1);
 }
+
+// int	read_map(int fd, t_map *map, int max_length, t_list *lst)
+// {
+// 	char	*line;
+// 	int		line_length;
+// 	t_list	*node;
+
+// 	line = skip_empty_lines(fd);
+// 	while (line && !empty_line(line))
+// 	{
+// 		remove_nl(line);
+// 		if (!is_map(line))
+// 			return (free(line), 0);
+// 		node = new_node(line);
+// 		if (!node)
+// 			return (0);
+// 		node_add_back(&lst, node);
+// 		line_length = ft_strlen(line);
+// 		if (line_length > max_length)
+// 			max_length = line_length;
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// 	map->coor = get_coor(map, lst, max_length);
+// 	if (!(map->coor))
+// 		return (0);
+// 	return (1);
+// }
