@@ -26,8 +26,6 @@ int	parsing(char *file, t_map *map)
 		return (close(fd), free_params(map), 0);
 	if (!get_player_coor(map))
 		return ((close(fd), free_params(map), 0));
-	// if (something_left(fd))
-	// 	return
 	close(fd);
 	if (!validate_map(map))
 		return (free_params(map), 0);
