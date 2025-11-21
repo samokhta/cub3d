@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 14:16:26 by samokhta          #+#    #+#             */
-/*   Updated: 2025/11/14 17:12:37 by sael             ###   ########.fr       */
+/*   Created: 2025-11-20 14:15:08 by samokhta          #+#    #+#             */
+/*   Updated: 2025-11-20 14:15:08 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int close_window(t_data *data)
+int	close_window(t_data *data)
 {
 	(void)data;
-	//mlx_destroy_image(data->mlx, data->wall_img.img);
-	//mlx_destroy_window(data->mlx, data->win);
-	//mlx_destroy_display(data->mlx);
+	mlx_destroy_image(data->mlx, data->screen_img.img);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
 	free_all(data);
 	exit(0);
 	return (0);
@@ -72,15 +72,14 @@ void	init_keys(t_data *data)
 	data->key.esc = false;
 }
 
-void    ft_window_init(t_data *data)
+void	ft_window_init(t_data *data)
 {
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");
-
 	init_keys(data);
-    mlx_key_hook(data->win, key_press, data);
+	mlx_key_hook(data->win, key_press, data);
 	mlx_hook(data->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->win, 3, 1L << 1, key_unpress, data);
-    mlx_hook(data->win, 17, 0, close_window, data);
-    return ;
+	mlx_hook(data->win, 17, 0, close_window, data);
+	return ;
 }

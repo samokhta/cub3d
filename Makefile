@@ -30,7 +30,8 @@ SRC_MAIN	= main_cub3d.c	utils.c init.c
 SRC_PARS	= parsing.c param.c utils_pars.c test.c utils_lst.c map.c 		   \
 			  floodfill.c val_tex.c
 
-SRC_WIN = window_init.c minimap_init.c background_init.c utils_display.c
+SRC_WIN 	= window_init.c minimap_init.c background_init.c utils_display.c	\
+			  utils_minimap.c
 
 SRC_MOV		= movement.c
 

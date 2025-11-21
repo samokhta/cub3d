@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:59:36 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 15:41:54 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:57:40 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ void	free_params(t_map *map)
 void	free_all(t_data *data)
 {
 	free_params(&data->map);
+	printf("freeing all allocated memory\n");
 	free_textures(data);
+	printf("all memory freed\n");
 }
 
 int	ft_isfilename(int c)

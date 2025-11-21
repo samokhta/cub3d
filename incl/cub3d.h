@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: samokhta <samokhta@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 06:38:47 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 13:32:47 by sravizza         ###   ########.fr       */
+/*   Created: 2025-11-20 14:20:09 by samokhta          #+#    #+#             */
+/*   Updated: 2025-11-20 14:20:09 by samokhta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
+# define MINIMAP_SIZE 10
+# define MOVEMENT_SPEED 0.1
+# define ROTATION_SPEED 0.05
 # define WHITE 0xdddddd
 # define BLACK 0x1c1c1c
 # define GRAY 0x6b6b6b
