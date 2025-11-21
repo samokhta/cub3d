@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   proto.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-11-20 14:22:00 by samokhta          #+#    #+#             */
-/*   Updated: 2025-11-20 14:22:00 by samokhta         ###   ########.fr       */
+/*   Created: 2025/11/20 14:22:00 by samokhta          #+#    #+#             */
+/*   Updated: 2025/11/21 21:16:47 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		validate_map(t_map *map);
 int		is_map(char *line);
 char	*copy_line(char *content, int max_len);
 char	**get_coor(t_map *map, t_list *lst, int max_length);
-int		read_map(int fd, t_map *map, int max_length, t_list *lst);
+int		read_map(int fd, t_map *map, int max_length);
 
 //param
 int		assign_texture(char *line, char **param);

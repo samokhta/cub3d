@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:16:57 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 16:04:24 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/21 19:29:15 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ int	flood_fill(t_map *map, char **flood, int row, int col)
 	if (!flood_fill(map, flood, row + 1, col)
 		|| !flood_fill(map, flood, row - 1, col)
 		|| !flood_fill(map, flood, row, col + 1)
-		|| !flood_fill(map, flood, row, col - 1))
+		|| !flood_fill(map, flood, row, col - 1)
+		|| !flood_fill(map, flood, row + 1, col + 1)
+		|| !flood_fill(map, flood, row - 1, col - 1)
+		|| !flood_fill(map, flood, row - 1, col + 1)
+		|| !flood_fill(map, flood, row + 1, col - 1))
 		return (0);
 	return (1);
 }

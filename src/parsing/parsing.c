@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:58:24 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/19 16:05:05 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/21 21:17:26 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	parsing(char *file, t_map *map)
 	initialise_param(map);
 	if (!read_params(fd, map))
 		return (close(fd), free_params(map), 0);
-	if (!read_map(fd, map, 0, NULL))
+	if (!read_map(fd, map, 0))
 		return (close(fd), free_params(map), 0);
 	if (!get_player_coor(map))
 		return ((close(fd), free_params(map), 0));

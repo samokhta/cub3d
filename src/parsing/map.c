@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sravizza <sravizza@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 16:48:35 by sravizza          #+#    #+#             */
-/*   Updated: 2025/11/06 17:06:33 by sravizza         ###   ########.fr       */
+/*   Updated: 2025/11/21 21:20:26 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char	*remove_nl(char *src)
 	return (src);
 }
 
-int	read_map(int fd, t_map *map, int max_length, t_list *lst)
+int	read_map(int fd, t_map *map, int max_length)
 {
 	char	*line;
 	t_list	*node;
@@ -104,13 +104,13 @@ int	read_map(int fd, t_map *map, int max_length, t_list *lst)
 		node = new_node(line);
 		if (!node)
 			return (0);
-		node_add_back(&lst, node);
+		node_add_back(&map->lst, node);
 		if ((int)ft_strlen(line) > max_length)
 			max_length = ft_strlen(line);
 		free(line);
 		line = get_next_line(fd);
 	}
-	map->coor = get_coor(map, lst, max_length);
+	map->coor = get_coor(map, map->lst, max_length);
 	if (!(map->coor))
 		return (0);
 	return (1);

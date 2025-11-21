@@ -3,22 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samokhta <samokhta@student.42.fr>          #+#  +:+       +#+        */
+/*   By: sael <sael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-11-20 14:15:08 by samokhta          #+#    #+#             */
-/*   Updated: 2025-11-20 14:15:08 by samokhta         ###   ########.fr       */
+/*   Created: 2025/11/20 14:15:08 by samokhta          #+#    #+#             */
+/*   Updated: 2025/11/21 21:31:13 by sael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void    safe_destroy_image(void *mlx, t_img *img)
+{
+    if (img && img->img)
+    {
+        mlx_destroy_image(mlx, img->img);
+        img->img = NULL;
+    }
+}
+
+
 int	close_window(t_data *data)
 {
-	(void)data;
-	mlx_destroy_image(data->mlx, data->screen_img.img);
+	free_all(data);
+	safe_destroy_image(data->mlx, &data->screen_img);	
+	safe_destroy_image(data->mlx, &data->minimap_img);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
-	free_all(data);
+	free(data->mlx);
 	exit(0);
 	return (0);
 }
@@ -74,7 +85,7 @@ void	init_keys(t_data *data)
 
 void	ft_window_init(t_data *data)
 {
-	data->mlx = mlx_init();
+	data->mlx = mlx_init(); //leak
 	data->win = mlx_new_window(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");
 	init_keys(data);
 	mlx_key_hook(data->win, key_press, data);
