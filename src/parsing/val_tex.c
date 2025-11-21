@@ -55,13 +55,13 @@ int	get_all_tex(t_data *data)
 void	free_textures(t_data *data)
 {
 	if (data->map.tex_no)
-		free(data->map.tex_no);
+		mlx_destroy_image(data->mlx, data->map.tex_no);
 	if (data->map.tex_so)
-		free(data->map.tex_so);
+		mlx_destroy_image(data->mlx, data->map.tex_so);
 	if (data->map.tex_ea)
-		free(data->map.tex_we);
+		mlx_destroy_image(data->mlx, data->map.tex_ea);
 	if (data->map.tex_we)
-		free(data->map.tex_ea);
+		mlx_destroy_image(data->mlx, data->map.tex_we);
 	data->map.tex_no = NULL;
 	data->map.tex_so = NULL;
 	data->map.tex_ea = NULL;

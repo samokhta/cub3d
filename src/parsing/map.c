@@ -94,7 +94,7 @@ int	read_map(int fd, t_map *map, int max_length, t_list *lst)
 	t_list	*node;
 
 	line = skip_empty_lines(fd);
-	while (line)// && !empty_line(line))
+	while (line)
 	{
 		if (empty_line(line))
 			return (free(line), format_error("invalid char in map"), 0);
