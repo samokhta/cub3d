@@ -12,26 +12,13 @@
 
 #include "cub3d.h"
 
-void    safe_destroy_image(void *mlx, t_img *img)
+void	safe_destroy_image(void *mlx, t_img *img)
 {
-    if (img && img->img)
-    {
-        mlx_destroy_image(mlx, img->img);
-        img->img = NULL;
-    }
-}
-
-
-int	close_window(t_data *data)
-{
-	free_all(data);
-	safe_destroy_image(data->mlx, &data->screen_img);	
-	safe_destroy_image(data->mlx, &data->minimap_img);
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
-	exit(0);
-	return (0);
+	if (img && img->img)
+	{
+		img->img = NULL;
+		mlx_destroy_image(mlx, img->img);
+	}
 }
 
 int	key_press(int key, t_data *data)
@@ -85,7 +72,9 @@ void	init_keys(t_data *data)
 
 void	ft_window_init(t_data *data)
 {
-	data->mlx = mlx_init(); //leak
+	data->screen_img.img = NULL;
+	data->minimap_img.img = NULL;
+	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");
 	init_keys(data);
 	mlx_key_hook(data->win, key_press, data);

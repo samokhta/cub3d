@@ -17,6 +17,15 @@ char	*get_next_line(int fd)
 	char		*out;
 	static char	*stat;
 
+	if (fd == -1)
+	{
+		if (stat)
+		{
+			free(stat);
+			stat = NULL;
+		}
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stat = read_fd(fd, stat);

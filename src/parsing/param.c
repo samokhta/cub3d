@@ -19,7 +19,7 @@ int	assign_texture(char *line, char **param)
 	char	*path;
 
 	i = 3;
-	while (line[i] && line[i] == ' ')
+	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 		i++;
 	if (!line[i])
 		return (format_error("no texture path"), 0);
@@ -27,10 +27,10 @@ int	assign_texture(char *line, char **param)
 	if (!path)
 		return (format_error("texture malloc failed"), 0);
 	if (ft_strncmp(path + ft_strlen(path) - 4, ".xpm", 4))
-		return (format_error("texture is not .xpm"), 0);
+		return (free(path), format_error("texture is not .xpm"), 0);
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		return (format_error("cannot open texture path"), 0);
+		return (free(path), format_error("cannot open texture path"), 0);
 	close(fd);
 	*param = path;
 	return (1);
@@ -44,7 +44,7 @@ int	assign_color(char *line, int *param, int i_color)
 	i = 2;
 	while (line[i] && i_color < 3)
 	{
-		while (line[i] == ' ')
+		while (line[i] == ' ' || line[i] == '\t')
 			i++;
 		if (!ft_isdigit(line[i]))
 			return (format_error("color: format wrong"), 0);
@@ -54,7 +54,7 @@ int	assign_color(char *line, int *param, int i_color)
 		param[i_color++] = value;
 		while (ft_isdigit(line[i]))
 			i++;
-		while (line[i] == ' ')
+		while (line[i] == ' ' || line[i] == '\t')
 			i++;
 		if (i_color < 3 && line[i++] != ',')
 			return (format_error("color: missing comma"), 0);

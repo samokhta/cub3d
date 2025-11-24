@@ -21,12 +21,13 @@ int	parsing(char *file, t_map *map)
 		return (format_error("cannot open file"), 0);
 	initialise_param(map);
 	if (!read_params(fd, map))
-		return (close(fd), free_params(map), 0);
+		return (get_next_line(-1), close(fd), free_params(map), 0);
 	if (!read_map(fd, map, 0))
-		return (close(fd), free_params(map), 0);
+		return (get_next_line(-1), close(fd), free_params(map), 0);
 	if (!get_player_coor(map))
-		return ((close(fd), free_params(map), 0));
+		return (get_next_line(-1), close(fd), free_params(map), 0);
 	close(fd);
+	get_next_line(-1);
 	if (!validate_map(map))
 		return (free_params(map), 0);
 	return (1);

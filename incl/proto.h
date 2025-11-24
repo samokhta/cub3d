@@ -104,7 +104,9 @@ void	print_player_stats(t_player *player);
 //window_init
 int		key_hook(int keycode, t_data *data);
 int		close_window(t_data *data);
+void	cleanup_window(t_data *data);
 void	ft_window_init(t_data *data);
+void	safe_destroy_image(void *mlx, t_img *img);
 
 //minimap_init
 void	ft_minimap(t_data *data);

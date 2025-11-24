@@ -3,8 +3,9 @@ SO wolf_tex/greystone.xpm
 EA wolf_tex/redbrick.xpm
 WE wolf_tex/wood.xpm
 
-F 0, 102, 0
-C 0, 128, 255
+F 0, 102, 0 322
+C 0, 128, 255533
+
 
        11111111111111
        100S0000000001

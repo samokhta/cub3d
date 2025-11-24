@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	initialise_player(&data.player, &data.map);
 	ft_window_init(&data);
 	if (!get_all_tex(&data))
-		return (free_all(&data), 1);
+		return (cleanup_window(&data), 1);
 	mlx_loop_hook(data.mlx, game_loop, &data);
 	mlx_loop(data.mlx);
 	return (0);
